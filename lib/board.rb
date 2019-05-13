@@ -57,4 +57,8 @@ class Board
     end
   end
 
+  def update
+
+  end
+
 end
