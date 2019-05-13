@@ -57,7 +57,7 @@ class Board
     end
   end
 
-  def update
+  def update(position, player)
 
   end
 
