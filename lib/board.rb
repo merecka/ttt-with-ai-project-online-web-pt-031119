@@ -31,4 +31,30 @@ class Board
     end
   end
 
+  def turn_count
+    count = 0
+    self.cells.each do |x|
+      if x != " "
+        count += 1
+      end
+    end
+    count
+  end
+
+  def taken?(value)
+    if self.position(value) == "X" || self.position(value) == "O"
+      true
+    else
+      false
+    end
+  end
+
+  def valid_move?(value)
+    if (1..9).include?(value.to_i) && self.taken?(value) == false
+      true
+    else
+      false
+    end
+  end
+
 end
