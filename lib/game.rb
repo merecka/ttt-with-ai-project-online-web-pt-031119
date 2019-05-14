@@ -55,9 +55,10 @@ class Game
       false
     elsif self.won? == false
       true
-    else self.won? == true
+    elsif self.won? == true
       false
     end
+    # binding.pry
   end
 
 
