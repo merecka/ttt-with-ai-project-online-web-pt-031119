@@ -50,5 +50,15 @@ class Game
     end
   end
 
+  def draw?
+    if board.full? == false
+      false
+    elsif self.won? == false
+      true
+    else self.won? == true
+      false
+    end
+  end
+
 
 end
