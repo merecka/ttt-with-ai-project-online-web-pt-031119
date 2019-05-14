@@ -1,6 +1,9 @@
+require '../lib/players/human.rb'
+
 class Player
 
   include Players::Human
+  extend Players::Human
 
   attr_reader :token
 
