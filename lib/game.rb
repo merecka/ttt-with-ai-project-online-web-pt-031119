@@ -19,7 +19,36 @@ class Game
   end
 
   def won?
-    binding.pry
+    x_combo = nil
+    o_combo = nil
+
+    WIN_COMBINATIONS.each do |combo|
+      count_x = 0
+      count_o = 0
+
+      combo.each do |position|
+        if self.board.cells[position] == "X"
+          count_x += 1
+        elsif self.board.cells[position] == "O"
+          count_o += 1
+        end
+      end
+
+      if (count_x == 3)
+        x_combo = combo
+      elsif (count_o == 3)
+        o_combo = combo
+      end
+    end
+
+    if x_combo && o_combo
+      false
+    elsif x_combo
+      x_combo
+    elsif o_combo
+      o_combo
+    end
   end
+
 
 end
