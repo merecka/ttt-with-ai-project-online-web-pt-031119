@@ -18,4 +18,8 @@ class Game
     end
   end
 
+  def won?
+    binding.pry
+  end
+
 end
