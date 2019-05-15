@@ -44,24 +44,28 @@ class Game
 
     if x_combo == o_combo
      false
-    elsif x_combo.length == 3
+    elsif x_combo.length == 3 && x_combo != o_combo
       x_combo
-    elsif o_combo.length == 3
+    elsif o_combo.length == 3 && o_combo != x_combo
       o_combo
     end
   end
 
 
   def draw?
-    # binding.pry
-    if board.full? == false
-      false
+    if self.won? == false
+      true
     elsif self.won? == true
       false
-    elsif self.won? == false
-      true
     end
-    # binding.pry
+  end
+
+  def over?
+    if self.draw? || self.won?
+      true
+    else
+      false
+    end
   end
 
 
