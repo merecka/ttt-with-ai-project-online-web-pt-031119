@@ -89,4 +89,15 @@ class Game
     end
   end
 
+  def turn
+    puts "#{current_player}, please make a move by entering a number 1-9 and pressing Enter."
+    move = gets.chomp
+    if input.instance_of? Integer && board.valid_move?(move)
+      board.update(move, current_player)
+    else
+      puts "Please try again to make a valid move by entering a number 1-9 and pressing Enter."
+      self.turn
+    end
+  end
+
 end
