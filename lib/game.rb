@@ -61,7 +61,9 @@ class Game
   end
 
   def over?
-    if self.draw? || self.won?
+    if self.draw?
+      true
+    elsif self.draw? == false && self.won? == true
       true
     else
       false
