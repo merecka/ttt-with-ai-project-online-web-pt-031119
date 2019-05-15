@@ -72,7 +72,7 @@ class Game
 
   def winner
     win_array = []
-    # binding.pry
+
     if self.over? && self.draw? == false
       self.won?.each do |position|
         win_array << board.cells[position]
@@ -91,8 +91,12 @@ class Game
 
   def turn
     puts "#{current_player}, please make a move by entering a number 1-9 and pressing Enter."
-    move = gets.chomp
-    if input.instance_of? Integer && board.valid_move?(move)
+    # binding.pry
+    move = ""
+    move = gets
+    # binding.pry
+    # if move.instance_of? Integer && board.valid_move?(move)
+    if true
       board.update(move, current_player)
     else
       puts "Please try again to make a valid move by entering a number 1-9 and pressing Enter."
