@@ -19,8 +19,8 @@ class Game
   end
 
   def won?
-    x_combo = nil
-    o_combo = nil
+    x_combo = 0
+    o_combo = 0
 
     WIN_COMBINATIONS.each do |combo|
       count_x = 0
@@ -32,31 +32,38 @@ class Game
         elsif self.board.cells[position] == "O"
           count_o += 1
         end
+        binding.pry
       end
 
-      if (count_x == 3)
+      if count_x == 3
         x_combo = combo
-      elsif (count_o == 3)
+      end
+      if count_o == 3
         o_combo = combo
       end
     end
+    # binding.pry
 
-    if x_combo && o_combo
-      false
-    elsif x_combo
+    if x_combo.length == o_combo.length
+     false
+    elsif x_combo.length !=3 && o_combo.length != 3
+     false
+    elsif x_combo.length == 3 && o_combo.length != 3
       x_combo
-    elsif o_combo
+    elsif o_combo.length == 3 && x_combo.length != 3
       o_combo
     end
+    # binding.pry
   end
 
   def draw?
+    # binding.pry
     if board.full? == false
+      false
+    elsif self.won? == true
       false
     elsif self.won? == false
       true
-    elsif self.won? == true
-      false
     end
     # binding.pry
   end
