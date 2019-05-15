@@ -55,15 +55,15 @@ class Game
   def draw?
     if self.won? == false
       true
-    elsif self.won? == true
+    elsif self.won?.instance_of? Array
       false
     end
   end
 
   def over?
-    if self.draw?
+    if self.draw? && self.board.full?
       true
-    elsif self.draw? == false && self.won? == true
+    elsif self.won?.instance_of? Array
       true
     else
       false
