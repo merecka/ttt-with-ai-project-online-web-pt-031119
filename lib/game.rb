@@ -70,5 +70,23 @@ class Game
     end
   end
 
+  def winner
+    win_array = []
+    # binding.pry
+    if self.over? && self.draw? == false
+      self.won?.each do |position|
+        win_array << board.cells[position]
+      end
+
+      if win_array.include?("X")
+        "X"
+      elsif win_array.include?("O")
+        "O"
+      end
+
+    elsif self.draw? == true
+      nil
+    end
+  end
 
 end
