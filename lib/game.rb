@@ -56,7 +56,6 @@ class Game
     if self.won? == false && self.board.full?
       true
     elsif self.won?
-    # elsif (self.won?.instance_of? Array)
       false
     end
   end
@@ -68,14 +67,7 @@ class Game
       false
     end
   end
-    # if self.draw? && self.board.full?
-    #   true
-    # elsif self.won?.instance_of? Array
-    #   true
-    # else
-    #   false
-    # end
-  # end
+
 
   def winner
     win_array = []
@@ -108,7 +100,6 @@ class Game
   def play
     until self.over?
       self.turn
-      # binding.pry
     end
   end
 
