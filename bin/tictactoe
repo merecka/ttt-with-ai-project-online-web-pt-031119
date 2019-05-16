@@ -1,3 +1,9 @@
 #!/usr/bin/env ruby
 
 require_relative '../config/environment'
+
+puts "Hello and Welcome to the CLI Tic Tac Toe game!"
+puts "Please choose which type of game you would like to play:"
+puts "  1.  0 Player"
+puts "  2.  1 Player"
+puts "  3.  2 Player"
