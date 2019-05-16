@@ -53,22 +53,29 @@ class Game
 
 
   def draw?
-    if self.won? == false
+    if self.won? == false && self.board.full?
       true
-    elsif self.won?.instance_of? Array
+    elsif self.won?
+    # elsif (self.won?.instance_of? Array)
       false
     end
   end
 
   def over?
-    if self.draw? && self.board.full?
-      true
-    elsif self.won?.instance_of? Array
+    if self.draw? || self.won?
       true
     else
       false
     end
   end
+    # if self.draw? && self.board.full?
+    #   true
+    # elsif self.won?.instance_of? Array
+    #   true
+    # else
+    #   false
+    # end
+  # end
 
   def winner
     win_array = []
@@ -98,21 +105,11 @@ class Game
     end
   end
 
-    # def turn2
-    #   # puts "#{current_player}, please make a move by entering a number 1-9 and pressing Enter."
-    #   # # binding.pry
-    #   # move = ""
-    #   # binding.pry
-    #   move = gets
-    #   # move = move.to_i
-    #   # binding.pry
-    #   # if move.instance_of? Integer && board.valid_move?(move)
-    #   # if input.instance_of? Integer && board.valid_move?(move)
-    #   #   board.update(move, current_player)
-    #   # else
-    #   #   puts "Please try again to make a valid move by entering a number 1-9 and pressing Enter."
-    #   #   self.turn
-    #   # end
-    # end
-
+  def play
+    until self.over?
+      self.turn
+      # binding.pry
+    end
   end
+
+end
