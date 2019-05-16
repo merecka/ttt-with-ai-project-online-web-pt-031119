@@ -101,6 +101,12 @@ class Game
     until self.over?
       self.turn
     end
+
+    if self.won?
+      puts "Congratulations #{self.winner}!"
+    elsif self.draw?
+      puts "Cat's Game!"
+    end
   end
 
 end
