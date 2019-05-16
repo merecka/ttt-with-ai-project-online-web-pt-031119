@@ -90,18 +90,29 @@ class Game
   end
 
   def turn
-    puts "#{current_player}, please make a move by entering a number 1-9 and pressing Enter."
-    # binding.pry
-    move = ""
-    move = gets
-    # binding.pry
-    # if move.instance_of? Integer && board.valid_move?(move)
-    if true
-      board.update(move, current_player)
-    else
-      puts "Please try again to make a valid move by entering a number 1-9 and pressing Enter."
+    move = current_player.move(board)
+    if board.valid_move?(move) == false
       self.turn
+    else
+      board.update(move, current_player)
     end
   end
 
-end
+    # def turn2
+    #   # puts "#{current_player}, please make a move by entering a number 1-9 and pressing Enter."
+    #   # # binding.pry
+    #   # move = ""
+    #   # binding.pry
+    #   move = gets
+    #   # move = move.to_i
+    #   # binding.pry
+    #   # if move.instance_of? Integer && board.valid_move?(move)
+    #   # if input.instance_of? Integer && board.valid_move?(move)
+    #   #   board.update(move, current_player)
+    #   # else
+    #   #   puts "Please try again to make a valid move by entering a number 1-9 and pressing Enter."
+    #   #   self.turn
+    #   # end
+    # end
+
+  end
