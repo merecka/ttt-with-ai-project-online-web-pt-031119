@@ -6,7 +6,8 @@ class CommandLineInterface
   end
 
   def game_selection_menu
-    puts "Hello and welcome to the CLI Tic Tac Toe game!"
+    puts "Hello and Welcome to the CLI Tic Tac Toe game!"
+    puts "\n"
     puts "Please choose which type of game you would like to play:"
     puts "  1.  0 Player - Computer vs Computer"
     puts "  2.  1 Player - You vs Computer"
@@ -27,13 +28,13 @@ class CommandLineInterface
 
   def select_game
     input = gets.chomp
-      case game_choice
+      case input
 
-        when input == "1"
+        when "1"
           puts "This is a game between two computer players and no input from you is required."
           Game.new(player_1=Players::Computer.new("X"), player_2=Players::Computer.new("O"))
 
-        when input == "2"
+        when "2"
           puts "You will be playing against the computer."
           choices = {"X" => "O", "O" => "X"}
           select_letter
@@ -41,9 +42,9 @@ class CommandLineInterface
           if letter == "X" || letter == "O"
             select_player
             player = gets.chomp
-            if player = "1"
+            if player == "1"
                Game.new(player_1 = Players::Human.new(letter), player_2 = Players::Computer.new(choices[letter]))
-            elsif player = "2"
+            elsif player == "2"
                Game.new(player_1 = Players::Computer.new(choices[letter]), player_2 = Players::Human.new(letter))
             else
               select_player
@@ -52,7 +53,7 @@ class CommandLineInterface
             select_letter
           end
 
-        when input == "3"
+        when "3"
           puts "You will be playing against another person."
           choices = {"X" => "O", "O" => "X"}
           select_letter
@@ -60,9 +61,9 @@ class CommandLineInterface
           if letter == "X" || letter == "O"
             select_player
             player = gets.chomp
-            if player = "1"
+            if player == "1"
                Game.new(player_1 = Players::Human.new(letter), player_2 = Players::Human.new(choices[letter]))
-            elsif player = "2"
+            elsif player == "2"
                Game.new(player_1 = Players::Human.new(choices[letter]), player_2 = Players::Human.new(letter))
             else
               select_player
@@ -73,4 +74,5 @@ class CommandLineInterface
         else
           game_selection_menu
         end
+      end
 end
