@@ -32,7 +32,6 @@ class CommandLineInterface
         when "1"
           puts "This is a game between two computer players and no input from you is required."
           Game.new(player_1=Players::Computer.new("X"), player_2=Players::Computer.new("O"))
-          Game.play
 
         when "2"
           puts "You will be playing against the computer."
@@ -44,10 +43,8 @@ class CommandLineInterface
             player = gets.chomp
             if player == "1"
                Game.new(player_1 = Players::Human.new(letter), player_2 = Players::Computer.new(choices[letter]))
-               Game.play
             elsif player == "2"
                Game.new(player_1 = Players::Computer.new(choices[letter]), player_2 = Players::Human.new(letter))
-               Game.play
             else
               select_player
             end
@@ -65,10 +62,8 @@ class CommandLineInterface
             player = gets.chomp
             if player == "1"
                Game.new(player_1 = Players::Human.new(letter), player_2 = Players::Human.new(choices[letter]))
-               Game.play
             elsif player == "2"
                Game.new(player_1 = Players::Human.new(choices[letter]), player_2 = Players::Human.new(letter))
-               Game.play
             else
               select_player
             end
