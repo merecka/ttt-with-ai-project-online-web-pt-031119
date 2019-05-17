@@ -34,7 +34,6 @@ class CommandLineInterface
     puts "And which player would you like to be?  Type 1 or 2 and press Enter."
     puts "  1. Player 1 (goes first)"
     puts "  2. Player 2 (goes second)"
-    self.player_choice = nil
     self.player_choice = gets.chomp
   end
 
@@ -57,6 +56,7 @@ class CommandLineInterface
             elsif self.player_choice == "2"
                self.game = Game.new(player_1 = Players::Computer.new(choices[letter]), player_2 = Players::Human.new(letter))
             else
+              self.player_choice = nil
               select_player
             end
           else
@@ -74,6 +74,7 @@ class CommandLineInterface
               elsif self.player_choice == "2"
                  self.game = Game.new(player_1 = Players::Human.new(choices[letter]), player_2 = Players::Human.new(letter))
               else
+                self.player_choice = nil
                 select_player
               end
             else
