@@ -98,6 +98,7 @@ class Game
   end
 
   def play
+
     until self.over?
       self.turn
     end

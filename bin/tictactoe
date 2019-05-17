@@ -2,8 +2,18 @@
 
 require_relative '../config/environment'
 
-puts "Hello and Welcome to the CLI Tic Tac Toe game!"
-puts "Please choose which type of game you would like to play:"
-puts "  1.  0 Player"
-puts "  2.  1 Player"
-puts "  3.  2 Player"
+# puts "Hello and Welcome to the CLI Tic Tac Toe game!"
+# puts "Please choose which type of game you would like to play:"
+# puts "  1.  0 Player"
+# puts "  2.  1 Player"
+# puts "  3.  2 Player"
+# input = gets.chomp
+# case game_choice
+# when input == "1"
+#   puts "This is a game between two computer players and no input from you is required."
+#
+# when input == "2"
+#   puts "You will be playing against the computer."
+#   puts "Which character "
+#
+# Game.new()
