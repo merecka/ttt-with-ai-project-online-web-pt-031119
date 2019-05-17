@@ -24,7 +24,7 @@ class CommandLineInterface
   end
 
   def select_letter
-    puts "Which letter would you like to be, X or O? Type X or O and press Enter."
+    puts "Which letter would you like to be, X or O?  Type X or O and press Enter."
     self.letter = gets.chomp
   end
 
