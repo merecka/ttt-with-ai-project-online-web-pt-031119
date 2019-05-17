@@ -20,6 +20,7 @@ class CommandLineInterface
     puts "  2.  1 Player - You vs Computer"
     puts "  3.  2 Player - Person vs Person"
     self.game_type = gets.chomp
+    self.game_type = gets.chomp
     select_game
   end
 
