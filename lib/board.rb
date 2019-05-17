@@ -17,6 +17,7 @@ class Board
     puts " #{self.cells[3]} | #{self.cells[4]} | #{self.cells[5]} "
     puts "-----------"
     puts " #{self.cells[6]} | #{self.cells[7]} | #{self.cells[8]} "
+    puts "\n"
   end
 
   def position(value)
@@ -59,6 +60,7 @@ class Board
 
   def update(cell, player)
     self.cells[cell.to_i - 1] = player.token
+    self.display
   end
 
 end

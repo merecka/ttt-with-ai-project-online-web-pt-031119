@@ -8,6 +8,7 @@ class CommandLineInterface
 
   def run
     game_selection_menu
+    game.play
   end
 
   def game_selection_menu
