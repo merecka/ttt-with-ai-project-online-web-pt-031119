@@ -98,13 +98,18 @@ class Game
   end
 
   def play
+    board.display
     until self.over?
       self.turn
     end
     if self.won?
       puts "Congratulations #{self.winner}!"
+      puts "\n"
+      puts "\n"
     elsif self.draw?
       puts "Cat's Game!"
+      puts "\n"
+      puts "\n"
     end
   end
 
