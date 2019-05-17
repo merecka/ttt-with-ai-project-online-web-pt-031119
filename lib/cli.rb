@@ -34,8 +34,8 @@ class CommandLineInterface
     puts "And which player would you like to be?  Type 1 or 2 and press Enter."
     puts "  1. Player 1 (goes first)"
     puts "  2. Player 2 (goes second)"
-    self.player = nil
-    self.player = gets.chomp
+    self.player_choice = nil
+    self.player_choice = gets.chomp
   end
 
 
@@ -52,9 +52,9 @@ class CommandLineInterface
           select_letter
             if self.letter == "X" || self.letter == "O"
             select_player
-            if self.player == "1"
+            if self.player_choice == "1"
                self.game = Game.new(player_1 = Players::Human.new(letter), player_2 = Players::Computer.new(choices[letter]))
-            elsif self.player == "2"
+            elsif self.player_choice == "2"
                self.game = Game.new(player_1 = Players::Computer.new(choices[letter]), player_2 = Players::Human.new(letter))
             else
               select_player
@@ -69,9 +69,9 @@ class CommandLineInterface
           select_letter
             if self.letter == "X" || self.letter == "O"
             select_player
-              if self.player == "1"
+              if self.player_choice == "1"
                  self.game = Game.new(player_1 = Players::Human.new(letter), player_2 = Players::Human.new(choices[letter]))
-              elsif self.player == "2"
+              elsif self.player_choice == "2"
                  self.game = Game.new(player_1 = Players::Human.new(choices[letter]), player_2 = Players::Human.new(letter))
               else
                 select_player
