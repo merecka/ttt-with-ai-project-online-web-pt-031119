@@ -1,5 +1,11 @@
 class CommandLineInterface
 
+  attr_accessor :game
+
+  def initialize
+    @game = []
+  end
+
   def run
     game_selection_menu
   end
@@ -31,7 +37,7 @@ class CommandLineInterface
 
         when "1"
           puts "This is a game between two computer players and no input from you is required."
-          Game.new(player_1=Players::Computer.new("X"), player_2=Players::Computer.new("O"))
+          self.game = Game.new(player_1=Players::Computer.new("X"), player_2=Players::Computer.new("O"))
 
         when "2"
           puts "You will be playing against the computer."
@@ -42,9 +48,9 @@ class CommandLineInterface
             select_player
             player = gets.chomp
             if player == "1"
-               Game.new(player_1 = Players::Human.new(letter), player_2 = Players::Computer.new(choices[letter]))
+               self.game = Game.new(player_1 = Players::Human.new(letter), player_2 = Players::Computer.new(choices[letter]))
             elsif player == "2"
-               Game.new(player_1 = Players::Computer.new(choices[letter]), player_2 = Players::Human.new(letter))
+               self.game = Game.new(player_1 = Players::Computer.new(choices[letter]), player_2 = Players::Human.new(letter))
             else
               select_player
             end
@@ -61,9 +67,9 @@ class CommandLineInterface
             select_player
             player = gets.chomp
             if player == "1"
-               Game.new(player_1 = Players::Human.new(letter), player_2 = Players::Human.new(choices[letter]))
+               self.game = Game.new(player_1 = Players::Human.new(letter), player_2 = Players::Human.new(choices[letter]))
             elsif player == "2"
-               Game.new(player_1 = Players::Human.new(choices[letter]), player_2 = Players::Human.new(letter))
+               self.game = Game.new(player_1 = Players::Human.new(choices[letter]), player_2 = Players::Human.new(letter))
             else
               select_player
             end
