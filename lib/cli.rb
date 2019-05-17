@@ -77,7 +77,7 @@ class CommandLineInterface
                 select_player
               end
             else
-              select_game
+              select_letter
           end
         else
           game_selection_menu
