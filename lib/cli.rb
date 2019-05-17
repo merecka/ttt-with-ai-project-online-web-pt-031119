@@ -38,7 +38,7 @@ class CommandLineInterface
           choices = {"X" => "O", "O" => "X"}
           select_letter
           letter = gets.chomp
-          if letter == "X" || "O"
+          if letter == "X" || letter == "O"
             select_player
             player = gets.chomp
             if player = "1"
@@ -57,7 +57,7 @@ class CommandLineInterface
           choices = {"X" => "O", "O" => "X"}
           select_letter
           letter = gets.chomp
-          if letter == "X" || "O"
+          if letter == "X" || letter == "O"
             select_player
             player = gets.chomp
             if player = "1"
