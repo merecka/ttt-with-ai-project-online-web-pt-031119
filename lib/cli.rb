@@ -1,6 +1,6 @@
 class CommandLineInterface
 
-  attr_accessor :game, :game_type, :letter, :player
+  attr_accessor :game, :game_type, :letter, :player_choice
 
   def initialize
     @game = []
