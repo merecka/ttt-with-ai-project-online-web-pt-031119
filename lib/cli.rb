@@ -57,7 +57,7 @@ class CommandLineInterface
               select_player
             end
           else
-            select_letter
+            select_game
           end
 
         when "3"
