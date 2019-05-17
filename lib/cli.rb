@@ -37,8 +37,7 @@ class CommandLineInterface
 
 
   def select_game
-    self.game_type = gets.chomp
-      case game_type
+        case game_type
 
         when "1"
           puts "This is a game between two computer players and no input from you is required."
