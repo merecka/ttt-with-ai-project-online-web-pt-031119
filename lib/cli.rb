@@ -1,6 +1,6 @@
 class CommandLineInterface
 
-  attr_accessor :game
+  attr_accessor :game, :game_type, :letter, :player
 
   def initialize
     @game = []
@@ -34,8 +34,8 @@ class CommandLineInterface
 
 
   def select_game
-    input = gets.chomp
-      case input
+    self.game_type = gets.chomp
+      case game_type
 
         when "1"
           puts "This is a game between two computer players and no input from you is required."
@@ -45,13 +45,13 @@ class CommandLineInterface
           puts "You will be playing against the computer."
           choices = {"X" => "O", "O" => "X"}
           select_letter
-          letter = gets.chomp
-          if letter == "X" || letter == "O"
+          self.letter = gets.chomp
+          if self.letter == "X" || self.letter == "O"
             select_player
-            player = gets.chomp
-            if player == "1"
+            self.player = gets.chomp
+            if self.player == "1"
                self.game = Game.new(player_1 = Players::Human.new(letter), player_2 = Players::Computer.new(choices[letter]))
-            elsif player == "2"
+            elsif self.player == "2"
                self.game = Game.new(player_1 = Players::Computer.new(choices[letter]), player_2 = Players::Human.new(letter))
             else
               select_player
