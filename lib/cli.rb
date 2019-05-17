@@ -47,10 +47,8 @@ class CommandLineInterface
           puts "You will be playing against the computer."
           choices = {"X" => "O", "O" => "X"}
           select_letter
-          self.letter = gets.chomp
-          if self.letter == "X" || self.letter == "O"
+            if self.letter == "X" || self.letter == "O"
             select_player
-            self.player = gets.chomp
             if self.player == "1"
                self.game = Game.new(player_1 = Players::Human.new(letter), player_2 = Players::Computer.new(choices[letter]))
             elsif self.player == "2"
@@ -66,19 +64,17 @@ class CommandLineInterface
           puts "You will be playing against another person."
           choices = {"X" => "O", "O" => "X"}
           select_letter
-          self.letter = gets.chomp
-          if self.letter == "X" || self.letter == "O"
+            if self.letter == "X" || self.letter == "O"
             select_player
-            self.player = gets.chomp
-            if self.player == "1"
-               self.game = Game.new(player_1 = Players::Human.new(letter), player_2 = Players::Human.new(choices[letter]))
-            elsif self.player == "2"
-               self.game = Game.new(player_1 = Players::Human.new(choices[letter]), player_2 = Players::Human.new(letter))
+              if self.player == "1"
+                 self.game = Game.new(player_1 = Players::Human.new(letter), player_2 = Players::Human.new(choices[letter]))
+              elsif self.player == "2"
+                 self.game = Game.new(player_1 = Players::Human.new(choices[letter]), player_2 = Players::Human.new(letter))
+              else
+                select_player
+              end
             else
-              select_player
-            end
-          else
-            select_letter
+              select_letter
           end
         else
           game_selection_menu
