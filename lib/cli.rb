@@ -1,6 +1,6 @@
 class CommandLineInterface
 
-  attr_accessor :game
+  attr_accessor :game, :game_type, :letter, :player_choice
 
   def initialize
     @game = []
@@ -19,23 +19,27 @@ class CommandLineInterface
     puts "  1.  0 Player - Computer vs Computer"
     puts "  2.  1 Player - You vs Computer"
     puts "  3.  2 Player - Person vs Person"
+    self.game_type = nil
+    self.game_type = gets.chomp
     select_game
   end
 
   def select_letter
-    puts "Which letter would you like to be, X or O? Type X or O and press Enter."
+    puts "Which letter would you like to be, X or O?  Type X or O and press Enter."
+    self.letter = nil
+    self.letter = gets.chomp
   end
 
   def select_player
-    puts "And which player would you like to be? Type 1 or 2"
+    puts "And which player would you like to be?  Type 1 or 2 and press Enter."
     puts "  1. Player 1 (goes first)"
     puts "  2. Player 2 (goes second)"
+    self.player_choice = gets.chomp
   end
 
 
   def select_game
-    input = gets.chomp
-      case input
+        case game_type
 
         when "1"
           puts "This is a game between two computer players and no input from you is required."
@@ -45,39 +49,37 @@ class CommandLineInterface
           puts "You will be playing against the computer."
           choices = {"X" => "O", "O" => "X"}
           select_letter
-          letter = gets.chomp
-          if letter == "X" || letter == "O"
+            if self.letter == "X" || self.letter == "O"
             select_player
-            player = gets.chomp
-            if player == "1"
+            if self.player_choice == "1"
                self.game = Game.new(player_1 = Players::Human.new(letter), player_2 = Players::Computer.new(choices[letter]))
-            elsif player == "2"
+            elsif self.player_choice == "2"
                self.game = Game.new(player_1 = Players::Computer.new(choices[letter]), player_2 = Players::Human.new(letter))
             else
+              self.player_choice = nil
               select_player
             end
           else
-            select_letter
+            select_game
           end
 
         when "3"
           puts "You will be playing against another person."
           choices = {"X" => "O", "O" => "X"}
           select_letter
-          letter = gets.chomp
-          if letter == "X" || letter == "O"
+            if self.letter == "X" || self.letter == "O"
             select_player
-            player = gets.chomp
-            if player == "1"
-               self.game = Game.new(player_1 = Players::Human.new(letter), player_2 = Players::Human.new(choices[letter]))
-            elsif player == "2"
-               self.game = Game.new(player_1 = Players::Human.new(choices[letter]), player_2 = Players::Human.new(letter))
+              if self.player_choice == "1"
+                 self.game = Game.new(player_1 = Players::Human.new(letter), player_2 = Players::Human.new(choices[letter]))
+              elsif self.player_choice == "2"
+                 self.game = Game.new(player_1 = Players::Human.new(choices[letter]), player_2 = Players::Human.new(letter))
+              else
+                self.player_choice = nil
+                select_player
+              end
             else
-              select_player
+              select_game
             end
-          else
-            select_letter
-          end
         else
           game_selection_menu
         end
