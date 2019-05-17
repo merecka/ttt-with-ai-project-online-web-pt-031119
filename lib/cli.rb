@@ -9,6 +9,7 @@ class CommandLineInterface
   def run
     game_selection_menu
     game.play
+    again_or_exit
   end
 
   def game_selection_menu
@@ -79,6 +80,21 @@ class CommandLineInterface
           end
         else
           game_selection_menu
+        end
+      end
+
+      def again_or_exit
+        puts "Would you like to play another game or exit?  Choose an option by typing the corresponding number and press Enter."
+        puts "  1.  Play another game."
+        puts "  2.  Exit."
+        input = gets.chomp
+        case input
+        when "1"
+          CommandLineInterface.new.run
+        when "2"
+          exit
+        else
+          again_or_exit
         end
       end
 end
