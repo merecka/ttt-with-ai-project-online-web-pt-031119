@@ -24,12 +24,14 @@ class CommandLineInterface
 
   def select_letter
     puts "Which letter would you like to be, X or O? Type X or O and press Enter."
+    self.letter = gets.chomp
   end
 
   def select_player
     puts "And which player would you like to be?  Type 1 or 2 and press Enter."
     puts "  1. Player 1 (goes first)"
     puts "  2. Player 2 (goes second)"
+    self.player = gets.chomp
   end
 
 
