@@ -32,6 +32,7 @@ class CommandLineInterface
     puts "And which player would you like to be?  Type 1 or 2 and press Enter."
     puts "  1. Player 1 (goes first)"
     puts "  2. Player 2 (goes second)"
+    self.player = nil
     self.player = gets.chomp
   end
 
